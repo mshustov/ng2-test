@@ -1,0 +1,13 @@
+<div class="ele-strip">
+    <ul>
+        <li *ngFor="let tag of tags">
+            <a
+                href="#"
+                [class.anc-bor]="tag === activeTag"
+                (click)="onClick(tag, $event)"
+            >
+                {{tag}}
+            </a>
+        </li>
+    </ul>
+</div>

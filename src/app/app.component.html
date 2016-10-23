@@ -1,3 +1,36 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Hot Weather Widget</h1>
+<div class="element">
+    <div class="element-left">
+        <div class="element-bg-img">
+            <img src="images/1.jpg" alt="" class="img-responsive">
+        </div>
+        <div class="element-left-bottom">
+            <app-navbar
+                [tags]="tags"
+                [activeTag]="activeTag"
+                (changeTag)="onTagChange($event)"
+            >
+            </app-navbar>
+
+            <app-village
+                [resorts]="resorts | filterByTag:activeTag"
+                [activeTag]="activeTag"
+                (changeResort)="onResortChange($event)"
+            >
+            </app-village>
+
+        </div>
+    </div>
+    <div class="element-right">
+        <app-temperature
+            [temperature]="activeResort?.temperature"
+        >
+        </app-temperature>
+
+        <app-promo
+            [social]="activeResort?.social"
+        >
+        </app-promo>
+    </div>
+    <div class="clear"></div>
+</div>
